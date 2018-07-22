@@ -24,6 +24,14 @@ public:
   void set_bottom_room(Room *r);
   void set_left_room(Room *r);
 
+  virtual bool try_leave();
+  virtual void inspect();
+
+  Room *go_top();
+  Room *go_right();
+  Room *go_bottom();
+  Room *go_left();
+
 protected:
   std::unordered_map<Direction, Room *, EnumClassHash> adj;
 };

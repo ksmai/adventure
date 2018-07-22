@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "room.h"
 
 Room::Room() {
@@ -63,4 +65,60 @@ void Room::set_left_room(Room *r) {
       r->set_right_room(this);
     }
   }
+}
+
+bool Room::try_leave() {
+  return true;
+}
+
+void Room::inspect() {
+  std::cout << "There are nothing here\n";
+}
+
+Room *Room::go_top() {
+  if (!adj[Room::Direction::TOP]) {
+    std::cout << "There is only a wall to the top\n";
+    return this;
+  }
+  if (!try_leave()) {
+    return this;
+  }
+  std::cout << "Move to a new room at the top\n";
+  return adj[Room::Direction::TOP];
+}
+
+Room *Room::go_right() {
+  if (!adj[Room::Direction::RIGHT]) {
+    std::cout << "There is only a wall to the right\n";
+    return this;
+  }
+  if (!try_leave()) {
+    return this;
+  }
+  std::cout << "Move to a new room on the right\n";
+  return adj[Room::Direction::RIGHT];
+}
+
+Room *Room::go_bottom() {
+  if (!adj[Room::Direction::BOTTOM]) {
+    std::cout << "There is only a wall to the bottom\n";
+    return this;
+  }
+  if (!try_leave()) {
+    return this;
+  }
+  std::cout << "Move to a new room at the bottom\n";
+  return adj[Room::Direction::BOTTOM];
+}
+
+Room *Room::go_left() {
+  if (!adj[Room::Direction::LEFT]) {
+    std::cout << "There is only a wall to the left\n";
+    return this;
+  }
+  if (!try_leave()) {
+    return this;
+  }
+  std::cout << "Move to a new room on the left\n";
+  return adj[Room::Direction::LEFT];
 }
