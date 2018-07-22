@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "room.h"
+#include "player.h"
 
 Room::Room() {
   adj[Room::Direction::TOP] = nullptr;
@@ -67,56 +68,57 @@ void Room::set_left_room(Room *r) {
   }
 }
 
-bool Room::try_leave() {
+bool Room::try_leave(Player &p) {
   return true;
 }
 
-void Room::inspect() {
+bool Room::inspect(Player &p) {
   std::cout << "There are nothing here\n";
+  return false;
 }
 
-Room *Room::go_top() {
+Room *Room::go_top(Player &p) {
   if (!adj[Room::Direction::TOP]) {
     std::cout << "There is only a wall to the top\n";
     return this;
   }
-  if (!try_leave()) {
+  if (!try_leave(p)) {
     return this;
   }
   std::cout << "Move to a new room at the top\n";
   return adj[Room::Direction::TOP];
 }
 
-Room *Room::go_right() {
+Room *Room::go_right(Player &p) {
   if (!adj[Room::Direction::RIGHT]) {
     std::cout << "There is only a wall to the right\n";
     return this;
   }
-  if (!try_leave()) {
+  if (!try_leave(p)) {
     return this;
   }
   std::cout << "Move to a new room on the right\n";
   return adj[Room::Direction::RIGHT];
 }
 
-Room *Room::go_bottom() {
+Room *Room::go_bottom(Player &p) {
   if (!adj[Room::Direction::BOTTOM]) {
     std::cout << "There is only a wall to the bottom\n";
     return this;
   }
-  if (!try_leave()) {
+  if (!try_leave(p)) {
     return this;
   }
   std::cout << "Move to a new room at the bottom\n";
   return adj[Room::Direction::BOTTOM];
 }
 
-Room *Room::go_left() {
+Room *Room::go_left(Player &p) {
   if (!adj[Room::Direction::LEFT]) {
     std::cout << "There is only a wall to the left\n";
     return this;
   }
-  if (!try_leave()) {
+  if (!try_leave(p)) {
     return this;
   }
   std::cout << "Move to a new room on the left\n";
