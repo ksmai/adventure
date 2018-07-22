@@ -3,13 +3,21 @@
 #include <unordered_map>
 
 class Room {
+private:
+  struct EnumClassHash {
+    template <typename T>
+    int operator()(T t) const {
+      return static_cast<int>(t);
+    }
+  };
 public:
-  enum Direction {
+  enum class Direction {
     TOP, RIGHT, BOTTOM, LEFT
   };
 
   Room();
   Room(Room *top, Room *right, Room *bottom, Room *left);
+  ~Room();
 
   void set_top_room(Room *r);
   void set_right_room(Room *r);
@@ -17,7 +25,7 @@ public:
   void set_left_room(Room *r);
 
 protected:
-  std::unordered_map<int, Room *> adj;
+  std::unordered_map<Direction, Room *, EnumClassHash> adj;
 };
 
 #endif
