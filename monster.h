@@ -14,6 +14,7 @@ public:
   void receive_damage(int dmg);
   int get_damage() const;
   bool is_dead() const;
+  int get_hp() const;
 };
 
 #endif

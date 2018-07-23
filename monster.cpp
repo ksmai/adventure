@@ -23,3 +23,7 @@ int Monster::get_damage() const {
 bool Monster::is_dead() const {
   return hp <= 0;
 }
+
+int Monster::get_hp() const {
+  return hp;
+}
