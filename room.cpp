@@ -77,54 +77,54 @@ bool Room::inspect(Player &p) {
   int dmg = 5;
   std::cout << "You lost " << dmg << " HP looking around\n";
   p.receive_damage(dmg);
-  std::cout << "Your remaining HP: " << p.get_hp() << '\n';
+  std::cout << "Your remaining HP: " << p.get_hp() << "\n\n";
   return false;
 }
 
 Room *Room::go_top(Player &p) {
   if (!adj[Room::Direction::TOP]) {
-    std::cout << "There is only a wall to the top\n";
+    std::cout << "There is only a wall to the top\n\n";
     return this;
   }
   if (!try_leave(p)) {
     return this;
   }
-  std::cout << "Move to a new room at the top\n";
+  std::cout << "Move to a new room at the top\n\n";
   return adj[Room::Direction::TOP];
 }
 
 Room *Room::go_right(Player &p) {
   if (!adj[Room::Direction::RIGHT]) {
-    std::cout << "There is only a wall to the right\n";
+    std::cout << "There is only a wall to the right\n\n";
     return this;
   }
   if (!try_leave(p)) {
     return this;
   }
-  std::cout << "Move to a new room on the right\n";
+  std::cout << "Move to a new room on the right\n\n";
   return adj[Room::Direction::RIGHT];
 }
 
 Room *Room::go_bottom(Player &p) {
   if (!adj[Room::Direction::BOTTOM]) {
-    std::cout << "There is only a wall to the bottom\n";
+    std::cout << "There is only a wall to the bottom\n\n";
     return this;
   }
   if (!try_leave(p)) {
     return this;
   }
-  std::cout << "Move to a new room at the bottom\n";
+  std::cout << "Move to a new room at the bottom\n\n";
   return adj[Room::Direction::BOTTOM];
 }
 
 Room *Room::go_left(Player &p) {
   if (!adj[Room::Direction::LEFT]) {
-    std::cout << "There is only a wall to the left\n";
+    std::cout << "There is only a wall to the left\n\n";
     return this;
   }
   if (!try_leave(p)) {
     return this;
   }
-  std::cout << "Move to a new room on the left\n";
+  std::cout << "Move to a new room on the left\n\n";
   return adj[Room::Direction::LEFT];
 }

@@ -48,6 +48,6 @@ void Game::next_round() {
       won = current_room->inspect(player);
       break;
     default:
-      std::cout << "WASD for movement. I for inspect.\n\n";
+      std::cout << "WASD for movement. I for inspect.\n";
   }
 }

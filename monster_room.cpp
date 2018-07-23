@@ -20,7 +20,7 @@ bool MonsterRoom::inspect(Player &player) {
       }
     }
   } else {
-    std::cout << "There is a dead monster on the floor.\n";
+    std::cout << "There is a dead monster on the floor.\n\n";
   }
   return false;
 }
