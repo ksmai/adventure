@@ -13,7 +13,9 @@ public:
   Player();
   void attack(Monster &monster) const;
   void defend(const Monster &monster);
+  void receive_damage(int dmg);
   bool is_dead() const;
+  int get_hp() const;
 };
 
 #endif

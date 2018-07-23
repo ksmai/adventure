@@ -74,6 +74,10 @@ bool Room::try_leave(Player &p) {
 
 bool Room::inspect(Player &p) {
   std::cout << "There are nothing here\n";
+  int dmg = 5;
+  std::cout << "You lost " << dmg << " HP looking around\n";
+  p.receive_damage(dmg);
+  std::cout << "Your remaining HP: " << p.get_hp() << '\n';
   return false;
 }
 
