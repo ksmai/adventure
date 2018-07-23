@@ -10,7 +10,7 @@ bool MonsterRoom::inspect(Player &player) {
     std::cout << "You attacked the monster!\n";
     std::cout << "Monster's remaining HP: " << monster.get_hp() << '\n';
     if (monster.is_dead()) {
-      std::cout << "The monster died!\n";
+      std::cout << "The monster died!\n\n";
     } else {
       player.defend(monster);
       std::cout << "The monster counter-attacked you!\n";
